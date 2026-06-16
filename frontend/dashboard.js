@@ -4,11 +4,19 @@ const ENV = window.APP_CONFIG.env;
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById("env_name_div").innerHTML = `<b>Running ${ENV.toUpperCase()} instance</b>`;
-    if (ENV === "dev") 
-       banner.style.color = "#117908";
-    elseif (ENV === "prod") 
-        banner.style.color = "#9b0505";
+  document.getElementById("env_name_div").innerHTML = `<b>Running ${ENV.toUpperCase()} instance</b>`;
+
+    if (ENV === "prod") {
+        banner.style.backgroundColor = "#fff7ed";
+        banner.style.color = "#c2410c";
+    }
+
+    if (ENV === "dev") {
+        banner.style.backgroundColor = "#ecfdf5";
+        banner.style.color = "#166534";
+    }
+
+
   
 });
 
