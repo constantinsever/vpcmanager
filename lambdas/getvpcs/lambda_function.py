@@ -1,6 +1,3 @@
-import os
-os.environ["AWS_EC2_METADATA_DISABLED"] = "true"
-
 import json
 import boto3
 import traceback
@@ -83,6 +80,8 @@ def lambda_handler(event, context):
                 "state": vpc.get("State"),
                 "is_default": vpc.get("IsDefault", False)
             })
+
+
 
         log(f"Returning {len(vpcs)} VPCs")
 
