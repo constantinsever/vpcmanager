@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VPC Manager Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<section id="authPage" class="auth-page">
+  <div class="auth-card">
+    <h1>VPC Manager</h1>
+    <p class="subtitle">Sign in with your admin-provided account.</p>
+
+    <div id="loginForm">
+      <input id="loginUsername" placeholder="Username" />
+      <input id="loginPassword" type="password" placeholder="Password" />
+      <button class="primary" onclick="login()">Sign In</button>
+
+      <p class="link-text">
+        <a href="#" onclick="showRecover(); return false;">Forgot your password?</a>
+      </p>
+    </div>
+
+    <div id="newPasswordForm" class="hidden">
+      <h3>Set your password</h3>
+      <input id="newPassword" type="password" placeholder="New password" />
+      <input id="confirmNewPassword" type="password" placeholder="Confirm new password" />
+      <button class="primary" onclick="completeNewPassword()">Continue</button>
+    </div>
+
+    <div id="recoverForm" class="hidden">
+      <h3>Password recovery</h3>
+      <input id="recoverEmail" placeholder="Username" />
+      <button class="primary" onclick="recoverPassword()">Send recovery code</button>
+
+      <p class="link-text">
+        <a href="#" onclick="showLogin(); return false;">Back to login</a>
+      </p>
+    </div>
+
+    <div id="resetPasswordForm" class="hidden">
+      <h3>Reset password</h3>
+      <input id="resetEmail" placeholder="Username" />
+      <input id="resetCode" placeholder="Recovery code" />
+      <input id="resetNewPassword" type="password" placeholder="New password" />
+      <button class="primary" onclick="confirmPasswordReset()">Reset password</button>
+
+      <p class="link-text">
+        <a href="#" onclick="showLogin(); return false;">Back to login</a>
+      </p>
+    </div>
+
+    <p id="authMessage"></p>
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

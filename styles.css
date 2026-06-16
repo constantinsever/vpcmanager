@@ -1,0 +1,281 @@
+* {
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 420px;
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(20, 40, 80, 0.14);
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+
+.subtitle {
+  margin: 0 0 26px;
+  color: #65758b;
+  line-height: 1.5;
+}
+
+.auth-card h3 {
+  margin-top: 0;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 13px;
+  border: 1px solid #d8e0ec;
+  border-radius: 10px;
+  font-size: 14px;
+  background: white;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+button {
+  border: none;
+  width: 180px;
+  background: #eef3f9;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.primary {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  background: #1d4ed8;
+}
+
+.link-text {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.link-text a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-text a:hover {
+  text-decoration: underline;
+}
+
+#authMessage,
+#dashboardMessage {
+  margin-top: 18px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none;
+}
+
+.topbar {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5eaf2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.topbar h2 {
+  margin: 0;
+}
+
+.topbar button {
+  background: #ef4444;
+  color: white;
+}
+
+.dashboard {
+  padding: 36px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(20, 40, 80, 0.08);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.small-btn {
+  width: auto !important;
+  padding: 10px 14px !important;
+}
+
+
+.audit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.audit-table th,
+.audit-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5eaf2;
+  text-align: left;
+}
+
+.audit-table th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+}
+
+.audit-table tr:hover {
+  background: #f9fbff;
+}
+
+
+.audit-table tbody tr {
+  background: #ffffff;
+}
+
+.audit-table tbody tr:hover {
+  background: #f3f7fc;
+}
+
+
+.audit-table tbody tr {
+  background: #ffffff;
+  color: #111827;
+}
+
+.audit-table tbody tr:hover {
+  background: #f3f7fc;
+}
+
+.audit-table tbody tr.delete-event {
+  color: #7f1d1d;
+}
+
+.audit-table tbody tr.delete-event:hover {
+  background: #fef2f2;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-card {
+  width: 420px;
+  background: white;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.25);
+}
+
+.modal-card h2 {
+  margin-top: 0;
+}
+
+.modal-card label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.audit-table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #e5eaf2;
+    border-radius: 8px;
+}
+
+.audit-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.audit-table thead th {
+    position: sticky;
+    top: 0;
+
+    background: #f8fafc;
+
+    z-index: 10;
+
+    border-bottom: 1px solid #e5eaf2;
+}

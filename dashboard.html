@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VPC Manager Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <h2>VPC Manager</h2>
+  <p id="dashboardMessage"></p>
+  <div>
+    <button onclick="goAudit()">Go to Audit</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</header>
+
+
+<main class="dashboard">
+<div class="dashboard-grid">
+
+  <div class="card">
+    <h3>Region</h3>
+
+    <select id="regionSelect" onchange="onRegionChange()">
+      <option value="eu-central-1">Europe - Frankfurt</option>
+      <option value="eu-west-1">Europe - Ireland</option>
+      <option value="us-east-1">US East - N. Virginia</option>
+      <option value="us-west-2">US West - Oregon</option>
+    </select>
+  </div>
+
+  <div class="card">
+    <div class="section-header">
+      <h3>VPCs</h3>
+      <button class="primary small-btn" onclick="createVpc()">Create VPC</button>
+    </div>
+
+    <select id="vpcList" size="8" onchange="onVpcSelected()"></select>
+
+    <button onclick="deleteVpc()">Delete Selected VPC</button>
+  </div>
+
+  <div class="card">
+    <div class="section-header">
+      <h3>Subnets</h3>
+      <button class="primary small-btn" onclick="createSubnet()">Create Subnet</button>
+    </div>
+
+    <select id="subnetList" size="8"></select>
+
+    <button onclick="deleteSubnet()">Delete Selected Subnet</button>
+  </div>
+
+</div>
+
+</main>
+
+
+<div id="vpcDialog" class="modal hidden">
+  <div class="modal-card">
+    <h2>Create VPC</h2>
+
+    <label>VPC Name</label>
+    <input id="vpcNameInput" placeholder="Example: dev-vpc" />
+
+    <label>CIDR Block</label>
+    <input id="vpcCidrInput" placeholder="Example: 10.0.0.0/16" />
+
+    <div class="modal-actions">
+      
+      <button class="action-btn" onclick="submitVpcDialog()">Create VPC</button>
+      <button onclick="closeVpcDialog()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="subnetDialog" class="modal hidden">
+  <div class="modal-card">
+    <h2>Create Subnet</h2>
+
+    <label>Subnet Name</label>
+    <input
+      id="subnetNameInput"
+      placeholder="Example: web-subnet"
+    />
+
+    <label>CIDR Block</label>
+    <input
+      id="subnetCidrInput"
+      placeholder="Example: 10.0.1.0/24"
+    />
+
+    <label>Availability Zone</label>
+    <input
+      id="subnetAzInput"
+      placeholder="Example: eu-central-1a"
+    />
+
+     
+     <div class="modal-actions">
+      <button
+        class="action-btn"
+        onclick="submitSubnetDialog()">
+        Create Subnet
+      </button>
+
+     
+      <button onclick="closeSubnetDialog()">
+        Cancel
+      </button>
+      
+      
+    </div>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

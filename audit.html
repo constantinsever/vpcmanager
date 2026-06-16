@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VPC Manager Events</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <h2>VPC Manager Events</h2>
+
+  <div>
+    <button onclick="goToDashboard()">Go to Dashboard</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<main class="dashboard">
+
+  <div class="card">
+    <div class="section-header">
+      <h3>Events</h3>
+
+      <div>
+        <button onclick="loadAudit()">Refresh</button>
+        <button onclick="clearAudit()">Clear Events</button>
+      </div>
+    </div>
+
+    <div class="audit-table-container">
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Event Time</th>
+            <th>Event Type</th>
+            <th>Resource Type</th>
+            <th>Resource Name</th>
+            <th>Resource ID</th>
+            <th>CIDR</th>
+            <th>Region</th>
+            <th>API User ID token</th>
+          </tr>
+        </thead>
+
+        <tbody id="auditTableBody"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+  <p id="auditMessage"></p>
+</main>
+
+<script src="audit.js"></script>
+</body>
+</html>
