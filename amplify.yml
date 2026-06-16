@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Creating config.js"
+        - |
+          cat > config.js <<EOF
+          window.APP_CONFIG = {
+            apiBaseUrl: "$API_BASE_URL"
+          };
+          EOF
+    build:
+      commands:
+        - echo "S-a creat JavaScript-ul pt API GW"
+  artifacts:
+    baseDirectory: .
+    files:
+      - '**/*'
+  cache:
+    paths: []

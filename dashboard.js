@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://73pjc5yqn1.execute-api.eu-central-1.amazonaws.com"
+const API_BASE_URL = window.APP_CONFIG.apiBaseUrl;
 
 
 window.onload = async function () {
