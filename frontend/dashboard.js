@@ -2,9 +2,12 @@ const API_BASE_URL = window.APP_CONFIG.apiBaseUrl;
 
 const ENV = window.APP_CONFIG.env;
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
-  document.getElementById("env_name_div").innerHTML = `<b>Running ${ENV.toUpperCase()} instance</b>`;
+  const banner =  document.getElementById("env_name_div");
+  banner.innerHTML = `<b>Running ${ENV.toUpperCase()} instance</b>`;
 
     if (ENV === "prod") {
         banner.style.backgroundColor = "#fff7ed";
