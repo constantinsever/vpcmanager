@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("env_name_div").innerHTML = `<b>Running ${ENV.toUpperCase()} instance</b>`;
     if (ENV === "dev") 
        banner.style.color = "#117908";
-    elseif (ENV === "prod") {
+    elseif (ENV === "prod") 
         banner.style.color = "#9b0505";
      
-   }
+   
 });
 
 
