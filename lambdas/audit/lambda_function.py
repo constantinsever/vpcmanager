@@ -35,7 +35,7 @@ def response(status_code, body):
 
 def lambda_handler(event, context):
     try:
-        print("AUDIT EVENT:")
+        print("AUDIT EVENT: after deployer")
         print(json.dumps(event), flush=True)
 
         method = (
