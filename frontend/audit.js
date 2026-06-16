@@ -1,5 +1,14 @@
 const API_BASE_URL = window.APP_CONFIG.apiBaseUrl;
 
+const ENV = window.APP_CONFIG.env;
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("env_name_div").textContent = `${ENV.toUpperCase()}`;
+
+});
+
+
 window.onload = function () {
   const token = localStorage.getItem("access_token");
 
