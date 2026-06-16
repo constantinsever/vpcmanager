@@ -1,5 +1,12 @@
 const API_BASE_URL = window.APP_CONFIG.apiBaseUrl;
 
+const ENV = window.APP_CONFIG.env;
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("env_name_div").textContent = `${ENV.toUpperCase()}`;
+
+});
 
 window.onload = async function () {
   const token = getAuthToken();
@@ -397,3 +404,4 @@ async function deleteSubnet() {
 function goToAudit() {
   window.location.href = "audit.html";
 }
+
