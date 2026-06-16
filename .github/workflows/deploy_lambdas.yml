@@ -43,6 +43,10 @@ jobs:
               FUNCTION_BASE_NAME=$(basename "$dir")
               FUNCTION_NAME="${FUNCTION_BASE_NAME}-${APP_ENV}"
 
+              if [ "${GITHUB_REF_NAME}" = "prod" ]; then
+                 FUNCTION_NAME="${FUNCTION_BASE_NAME}"
+              fi
+
               echo "----------------------------------------"
               echo "Deploying Lambda: $FUNCTION_NAME"
               echo "Source folder: $dir"
