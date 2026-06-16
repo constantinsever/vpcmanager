@@ -3,7 +3,8 @@ import boto3
 import traceback
 from decimal import Decimal
 
-TABLE_NAME = "vpcmanager_prod"
+
+TABLE_NAME = "vpcmanager_prod" 
 
 CORS_HEADERS = {
     "Content-Type": "application/json",
