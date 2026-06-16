@@ -6,6 +6,7 @@ from decimal import Decimal
 
 TABLE_NAME = "vpcmanager_prod" 
 
+
 CORS_HEADERS = {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
