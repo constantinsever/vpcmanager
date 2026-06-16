@@ -4,7 +4,7 @@ const ENV = window.APP_CONFIG.env;
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById("env_name_div").textContent = `<b>${ENV.toUpperCase()}</b>`;
+    document.getElementById("env_name_div").innerHTML = `<b>Running ${ENV.toUpperCase()} instance</b>`;
 
 
 });
