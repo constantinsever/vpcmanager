@@ -3,7 +3,9 @@ import boto3
 import traceback
 from decimal import Decimal
 
-TABLE_NAME = "vpcmanager_prod"
+
+TABLE_NAME = "vpcmanager_prod" 
+
 
 CORS_HEADERS = {
     "Content-Type": "application/json",
@@ -33,7 +35,7 @@ def response(status_code, body):
 
 def lambda_handler(event, context):
     try:
-        print("AUDIT EVENT:")
+        print("AUDIT EVENT: after deployer")
         print(json.dumps(event), flush=True)
 
         method = (
