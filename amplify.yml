@@ -1,29 +1,18 @@
 version: 1
 
 frontend:
-phases:
-preBuild:
-commands:
-- echo "Generating config.js"
+  phases:
+    preBuild:
+      commands:
+        - |
+          cat > frontend/config.js <<EOF
+          window.APP_CONFIG = {
+            env: "$APP_ENV",
+            apiBaseUrl: "$API_BASE_URL"
+          };
+          EOF
 
-```
-    - |
-      cat > frontend/config.js <<EOF
-      window.APP_CONFIG = {
-        env: "$APP_ENV",
-        apiBaseUrl: "$API_BASE_URL"
-      };
-      EOF
-
-build:
-  commands:
-    - echo "Frontend build completed -- pentru JS"
-```
-
-artifacts:
-baseDirectory: frontend
-files:
-- '**/*'
-
-cache:
-paths: []
+  artifacts:
+    baseDirectory: frontend
+    files:
+      - '**/*'
