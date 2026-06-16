@@ -1,5 +1,27 @@
-const API_BASE_URL = "https://73pjc5yqn1.execute-api.eu-central-1.amazonaws.com"
+const API_BASE_URL = window.APP_CONFIG.apiBaseUrl;
 
+const ENV = window.APP_CONFIG.env;
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const banner =  document.getElementById("env_name_div");
+  banner.innerHTML = `<b>Running ${ENV.toUpperCase()} instance</b>`;
+
+    if (ENV === "prod") {
+        banner.style.backgroundColor = "#fff7ed";
+        banner.style.color = "#c2410c";
+    }
+
+    if (ENV === "dev") {
+        banner.style.backgroundColor = "#ecfdf5";
+        banner.style.color = "#166534";
+    }
+
+
+  
+});
 
 window.onload = async function () {
   const token = getAuthToken();
@@ -397,3 +419,4 @@ async function deleteSubnet() {
 function goToAudit() {
   window.location.href = "audit.html";
 }
+
