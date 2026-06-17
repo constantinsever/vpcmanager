@@ -3,6 +3,7 @@ import boto3
 from datetime import datetime, timezone
 import uuid
 import os
+from botocore.exceptions import ClientError
 
 
 TABLE_NAME = os.environ["TABLE_NAME"]
