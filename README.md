@@ -3,11 +3,32 @@
 VPC Manager is a lightweight web-based AWS networking management application, that allows authenticated users to create, view, and delete Amazon VPCs and Subnets through a simple dashboard interface.
 
 The application uses AWS Lambda, API Gateway, Cognito, DynamoDB, and EC2 APIs to provide a secure, serverless management experience.
+
 Production Instance
+https://www.myglobaldesktop.com/index.html
 https://main.d1rjl0u4cxd9ib.amplifyapp.com/dashboard.html
 
 Dev Instance
 https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
+
+
+## Solution Architecture
+
+<p align="center">
+  <img src="diagram1.png"
+       alt="VPC Manager Architecture"
+       width="1200">
+</p>
+
+## CICD Pipeline systems
+
+<p align="center">
+  <img src="diagram1.png"
+       alt="VPC Manager Architecture"
+       width="1200">
+</p>
+
+
 
 ---
 
