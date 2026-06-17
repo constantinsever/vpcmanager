@@ -1,8 +1,13 @@
 import json
 import boto3
 from datetime import datetime, timezone
+import uuid
+import os
 
-TABLE_NAME = "vpcmanager_prod"
+
+TABLE_NAME = os.environ["TABLE_NAME"]
+env = os.environ.get("env", "dev")
+
 
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table(TABLE_NAME)
