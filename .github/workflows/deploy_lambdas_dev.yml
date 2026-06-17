@@ -31,6 +31,7 @@ jobs:
 
       - name: Deploy Lambda functions
         run: |
+        ls
           # for dir in lambdas/*; do
           #   if [ -d "$dir" ]; then
 
