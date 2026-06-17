@@ -23,7 +23,10 @@ https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
 - Deletion is blocked by IAM Policy Role, which can be adjusted in the future.
 - Fronted files are automatically deployed using Amplify
 - Lambda Python code is automatically updated using Github Actions.
+- Lambda Python code is deployed using separated GithubAction pipelines, one for each environment/branch
 - Git Branch protection using Pull Request Approvers.
+- Identical code for Backend and Frontent able to run in different environments, by using env vars in Amplify.
+- CORS management
 
 ### VPC Management
 
