@@ -97,7 +97,7 @@ def lambda_handler(event, context):
         if error_code == "UnauthorizedOperation":
             return response(403, {
                 "error": "PermissionDenied",
-                "message": "Subnet deletion is disabled in this environment."
+                "message": "Subnet DELETE is disabled in DEV environment."
             })
 
         return response(500, {
