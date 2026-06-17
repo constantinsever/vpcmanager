@@ -99,7 +99,7 @@ async function authenticatedFetch(url, method = "GET", body = null) {
 
   const response = await fetch(url, request);
 
-  if (response.status === 401 || response.status === 403) {
+  if (response.status === 401 ) // || response.status === 403) {
     logout();
     throw new Error("Unauthorized");
   }
