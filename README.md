@@ -15,7 +15,7 @@ https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
 ## Solution Architecture
 
 <p align="center">
-  <img src="diagram1.png"
+  <img src="diagram4.png"
        alt="VPC Manager Architecture"
        width="1200">
 </p>
@@ -23,7 +23,7 @@ https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
 ## CICD Pipeline systems
 
 <p align="center">
-  <img src="diagram1.png"
+  <img src="diagram2.png"
        alt="VPC Manager Architecture"
        width="1200">
 </p>
@@ -36,6 +36,7 @@ https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
 
 ### Authentication
 
+- Production wbesite deployed automatically from Github Repo using Amplify, Route53, Cloudfront, Certificate Manager.
 - AWS Cognito User Pool authentication
 - Secure JWT-based API authorization
 - User login and logout
