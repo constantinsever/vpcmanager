@@ -258,7 +258,7 @@ button.primary:hover {
 
 
 .audit-table-container {
-    max-height: 300px;
+    max-height: 400px;
     overflow-y: auto;
     border: 1px solid #e5eaf2;
     border-radius: 8px;

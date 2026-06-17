@@ -96,7 +96,7 @@ def lambda_handler(event, context):
             "resource_type": "SUBNET",
             "resource_id": subnet_id,
             "event_type": "CREATE",
-            "environment": ENV,
+            "environment": env,
             "username": username,
             "name": name,
             "cidr": cidr,
