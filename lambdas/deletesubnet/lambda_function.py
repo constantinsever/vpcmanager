@@ -3,6 +3,7 @@ import boto3
 from datetime import datetime, timezone
 import uuid
 import os
+from botocore.exceptions import ClientError
 
 
 TABLE_NAME = os.environ["TABLE_NAME"]
@@ -83,6 +84,32 @@ def lambda_handler(event, context):
 
         return response(200, item)
 
+    except ClientError as e:
+
+        error_code = e.response["Error"]["Code"]
+        error_message = e.response["Error"]["Message"]
+
+        print(
+            f"AWS ERROR: {error_code}: {error_message}",
+            flush=True
+        )
+
+        if error_code == "UnauthorizedOperation":
+            return response(403, {
+                "error": "PermissionDenied",
+                "message": "Subnet deletion is disabled in this environment."
+            })
+
+        return response(500, {
+            "error": error_code,
+            "message": "AWS operation failed."
+        })
+
     except Exception as e:
+
         print(str(e), flush=True)
-        return response(500, {"error": "InternalServerError", "message": str(e)})
+
+        return response(500, {
+            "error": "InternalServerError",
+            "message": str(e)
+        })
