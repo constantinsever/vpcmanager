@@ -3,11 +3,32 @@
 VPC Manager is a lightweight web-based AWS networking management application, that allows authenticated users to create, view, and delete Amazon VPCs and Subnets through a simple dashboard interface.
 
 The application uses AWS Lambda, API Gateway, Cognito, DynamoDB, and EC2 APIs to provide a secure, serverless management experience.
+
 Production Instance
+https://www.myglobaldesktop.com/index.html
 https://main.d1rjl0u4cxd9ib.amplifyapp.com/dashboard.html
 
 Dev Instance
 https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
+
+
+## Solution Architecture
+
+<p align="center">
+  <img src="diagram4.png"
+       alt="VPC Manager Architecture"
+       width="1200">
+</p>
+
+## CICD Pipeline systems
+
+<p align="center">
+  <img src="diagram2.png"
+       alt="VPC Manager Architecture"
+       width="1200">
+</p>
+
+
 
 ---
 
@@ -15,6 +36,7 @@ https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
 
 ### Authentication
 
+- Production wbesite deployed automatically from Github Repo using Amplify, Route53, Cloudfront, Certificate Manager.
 - AWS Cognito User Pool authentication
 - Secure JWT-based API authorization
 - User login and logout
@@ -23,7 +45,10 @@ https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
 - Deletion is blocked by IAM Policy Role, which can be adjusted in the future.
 - Fronted files are automatically deployed using Amplify
 - Lambda Python code is automatically updated using Github Actions.
+- Lambda Python code is deployed using separated GithubAction pipelines, one for each environment/branch
 - Git Branch protection using Pull Request Approvers.
+- Identical code for Backend and Frontent able to run in different environments, by using env vars in Amplify.
+- CORS management
 
 ### VPC Management
 
