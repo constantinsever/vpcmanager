@@ -5,21 +5,21 @@ on:
   workflow_dispatch:
   
     branches:
-      - dev
+      - main
     paths:
       - "lambdas/**"
       - ".github/workflows/deploy-lambdas.yml"
 
 jobs:
   deploy_dev:
-    if: github.ref_name == 'dev'
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
 
     env:
       AWS_REGION: eu-central-1
 
     steps:
-      - name: Checkout repository DEV
+      - name: Checkout repository MAIN
         uses: actions/checkout@v4
 
       - name: Configure AWS credentials
@@ -35,11 +35,7 @@ jobs:
             if [ -d "$dir" ]; then
 
               FUNCTION_BASE_NAME=$(basename "$dir")
-              FUNCTION_NAME="${FUNCTION_BASE_NAME}-dev"
-
-              if [ "${GITHUB_REF_NAME}" = "main" ]; then
-                 FUNCTION_NAME="${FUNCTION_BASE_NAME}"
-              fi
+              FUNCTION_NAME="${FUNCTION_BASE_NAME}"
 
               echo "----------------------------------------"
               echo "Deploying Lambda: $FUNCTION_NAME"
