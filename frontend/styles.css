@@ -213,7 +213,7 @@ button.primary:hover {
 .card {
     display: flex;
     flex-direction: column;
-    min-height: 300px;
+    min-height: 400px;
 }
 
 .modal {
