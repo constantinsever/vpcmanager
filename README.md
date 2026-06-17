@@ -1,8 +1,13 @@
 # VPC Manager
 
-VPC Manager is a lightweight web-based AWS networking management application that allows authenticated users to create, view, and delete Amazon VPCs and Subnets through a simple dashboard interface.
+VPC Manager is a lightweight web-based AWS networking management application, that allows authenticated users to create, view, and delete Amazon VPCs and Subnets through a simple dashboard interface.
 
 The application uses AWS Lambda, API Gateway, Cognito, DynamoDB, and EC2 APIs to provide a secure, serverless management experience.
+Production Instance
+https://main.d1rjl0u4cxd9ib.amplifyapp.com/dashboard.html
+
+Dev Instance
+https://dev.d2ruys35orqlu8.amplifyapp.com/dashboard.html
 
 ---
 
@@ -14,6 +19,11 @@ The application uses AWS Lambda, API Gateway, Cognito, DynamoDB, and EC2 APIs to
 - Secure JWT-based API authorization
 - User login and logout
 - Protected API endpoints
+- Clean separation din DEV and PROD Environments (deletion is blocked in DEV)
+- Deletion is blocked by IAM Policy Role, which can be adjusted in the future.
+- Fronted files are automatically deployed using Amplify
+- Lambda Python code is automatically updated using Github Actions.
+- Git Branch protection using Pull Request Approvers.
 
 ### VPC Management
 
@@ -32,7 +42,7 @@ The application uses AWS Lambda, API Gateway, Cognito, DynamoDB, and EC2 APIs to
 
 ### Audit Events
 
-- Full audit trail stored in DynamoDB
+- Full audit trail stored in DynamoDB for both  DEV and PROD environments.
 - Tracks:
   - Event Type (CREATE / DELETE)
   - Resource Type (VPC / SUBNET)
@@ -88,6 +98,7 @@ Lambda Functions
 - Amazon Cognito
 - Amazon DynamoDB
 - Amazon EC2 SDK (Boto3)
+- Amazon Amplify
 
 ---
 
@@ -127,19 +138,4 @@ DELETE /audit
 
 ---
 
-## Future Enhancements
-
-- Route Tables
-- Internet Gateways
-- NAT Gateways
-- Security Groups
-- VPC Peering
-- Multi-Account Support
-- Search & Filtering
-- Pagination
-- Audit Export
-
----
-
-## License
 
