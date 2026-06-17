@@ -1,8 +1,13 @@
 import json
 import boto3
 from datetime import datetime, timezone
+import uuid
+import os
 
-TABLE_NAME = "vpcmanager_prod"
+
+TABLE_NAME = os.environ["TABLE_NAME"]
+env = os.environ.get("env", "dev")
+
 
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table(TABLE_NAME)
@@ -59,9 +64,11 @@ def lambda_handler(event, context):
         ec2.delete_subnet(SubnetId=subnet_id)
 
         item = {
+            "event_id": str(uuid.uuid4()),
             "resource_type": "SUBNET",
             "resource_id": subnet_id,
             "event_type": "DELETE",
+            "environment": env,
             "username": username,
             "name": name,
             "cidr": cidr,
@@ -70,6 +77,7 @@ def lambda_handler(event, context):
             "availability_zone": availability_zone,
             "event_time": now_utc()
         }
+
 
         table.put_item(Item=item)
 

@@ -56,15 +56,18 @@ def lambda_handler(event, context):
         ec2.delete_vpc(VpcId=vpc_id)
 
         item = {
+            "event_id": str(uuid.uuid4()),
             "resource_type": "VPC",
             "resource_id": vpc_id,
             "event_type": "DELETE",
+            "environment": env,
             "username": username,
             "name": name,
             "cidr": cidr,
             "region": region,
             "event_time": now_utc()
         }
+
 
         table.put_item(Item=item)
 

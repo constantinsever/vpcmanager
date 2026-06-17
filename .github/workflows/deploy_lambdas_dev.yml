@@ -6,20 +6,20 @@ on:
   
     branches:
       - dev
-      - main
     paths:
       - "lambdas/**"
       - ".github/workflows/deploy-lambdas.yml"
 
 jobs:
-  deploy:
+  deploy_dev:
+    if: github.ref_name == 'dev'
     runs-on: ubuntu-latest
 
     env:
       AWS_REGION: eu-central-1
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository DEV
         uses: actions/checkout@v4
 
       - name: Configure AWS credentials
@@ -29,24 +29,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Set deployment environment
-        run: |
-          if [ "${GITHUB_REF_NAME}" = "dev" ]; then
-            echo "APP_ENV=dev" >> $GITHUB_ENV
-          fi
-
       - name: Deploy Lambda functions
         run: |
           for dir in lambdas/*; do
             if [ -d "$dir" ]; then
 
               FUNCTION_BASE_NAME=$(basename "$dir")
-              FUNCTION_NAME="${FUNCTION_BASE_NAME}-${APP_ENV}"
+              FUNCTION_NAME="${FUNCTION_BASE_NAME}-dev"
 
               echo "----------------------------------------"
               echo "Deploying Lambda: $FUNCTION_NAME"
               echo "Source folder: $dir"
-              echo "Environment: $APP_ENV"
+              echo "Environment: dev"
               echo "----------------------------------------"
 
               rm -rf package lambda.zip

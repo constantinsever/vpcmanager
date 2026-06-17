@@ -2,8 +2,13 @@ import json
 import boto3
 import ipaddress
 from datetime import datetime, timezone
+import uuid
+import os
 
-TABLE_NAME = "vpcmanager_prod"
+
+TABLE_NAME = os.environ["TABLE_NAME"]
+env = os.environ.get("env", "dev")
+
 
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table(TABLE_NAME)
@@ -63,13 +68,15 @@ def lambda_handler(event, context):
         )
 
         item = {
+            "event_id": str(uuid.uuid4()),
             "resource_type": "VPC",
-            "resource_id": vpc_id,
             "event_type": "CREATE",
+            "environment": env,
             "username": username,
             "name": name,
             "cidr": cidr,
             "region": region,
+            "vpc_id": vpc_id,
             "event_time": now_utc()
         }
 
