@@ -22,7 +22,7 @@
   <div class="card">
     <h3>Region</h3>
 
-    <select id="regionSelect" onchange="onRegionChange()">
+    <select id="regionSelect" onchange="onRegionChange()" class="lista_font_mare">
       <option value="eu-central-1">Europe - Frankfurt</option>
       <option value="eu-west-1">Europe - Ireland</option>
       <option value="us-east-1">US East - N. Virginia</option>
@@ -36,7 +36,7 @@
       <button class="primary small-btn" onclick="createVpc()">Create VPC</button>
     </div>
 
-    <select id="vpcList" size="8" onchange="onVpcSelected()"></select>
+    <select id="vpcList" size="8" onchange="onVpcSelected()" class="lista_font_mare"></select>
 
     <button onclick="deleteVpc()">Delete Selected VPC</button>
   </div>
@@ -47,7 +47,7 @@
       <button class="primary small-btn" onclick="createSubnet()">Create Subnet</button>
     </div>
 
-    <select id="subnetList" size="8"></select>
+    <select id="subnetList" size="8" class="lista_font_mare"></select>
 
     <button onclick="deleteSubnet()">Delete Selected Subnet</button>
   </div>

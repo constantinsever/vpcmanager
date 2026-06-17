@@ -279,3 +279,10 @@ button.primary:hover {
 
     border-bottom: 1px solid #e5eaf2;
 }
+
+.lista_font_mare {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+
+}
