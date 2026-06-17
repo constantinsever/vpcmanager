@@ -76,7 +76,7 @@ def lambda_handler(event, context):
             "name": name,
             "cidr": cidr,
             "region": region,
-            "vpc_id": vpc_id,
+            "resource_id": vpc_id,
             "event_time": now_utc()
         }
 
