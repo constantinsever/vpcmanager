@@ -31,46 +31,47 @@ jobs:
 
       - name: Deploy Lambda functions
         run: |
-          for dir in lambdas/*; do
-            if [ -d "$dir" ]; then
+           ls
+          # for dir in lambdas/*; do
+          #   if [ -d "$dir" ]; then
 
-              FUNCTION_BASE_NAME=$(basename "$dir")
-              FUNCTION_NAME="${FUNCTION_BASE_NAME}-dev"
+          #     FUNCTION_BASE_NAME=$(basename "$dir")
+          #     FUNCTION_NAME="${FUNCTION_BASE_NAME}-dev"
 
-              echo "----------------------------------------"
-              echo "Deploying Lambda: $FUNCTION_NAME"
-              echo "Source folder: $dir"
-              echo "Environment: dev"
-              echo "----------------------------------------"
+          #     echo "----------------------------------------"
+          #     echo "Deploying Lambda: $FUNCTION_NAME"
+          #     echo "Source folder: $dir"
+          #     echo "Environment: dev"
+          #     echo "----------------------------------------"
 
-              rm -rf package lambda.zip
-              mkdir package
+          #     rm -rf package lambda.zip
+          #     mkdir package
 
-              if [ -f "$dir/requirements.txt" ]; then
-                echo "Installing requirements..."
-                pip install -r "$dir/requirements.txt" -t package
-              fi
+          #     if [ -f "$dir/requirements.txt" ]; then
+          #       echo "Installing requirements..."
+          #       pip install -r "$dir/requirements.txt" -t package
+          #     fi
 
-              echo "Copying Python files..."
-              cp "$dir"/*.py package/
+          #     echo "Copying Python files..."
+          #     cp "$dir"/*.py package/
 
-              echo "Creating deployment package..."
-              cd package
-              zip -r ../lambda.zip .
-              cd ..
+          #     echo "Creating deployment package..."
+          #     cd package
+          #     zip -r ../lambda.zip .
+          #     cd ..
 
-              echo "Updating Lambda code..."
-              aws lambda update-function-code \
-                --function-name "$FUNCTION_NAME" \
-                --zip-file fileb://lambda.zip
+          #     echo "Updating Lambda code..."
+          #     aws lambda update-function-code \
+          #       --function-name "$FUNCTION_NAME" \
+          #       --zip-file fileb://lambda.zip
 
-              echo "Waiting for code update to finish..."
-              aws lambda wait function-updated \
-                --function-name "$FUNCTION_NAME"
+          #     echo "Waiting for code update to finish..."
+          #     aws lambda wait function-updated \
+          #       --function-name "$FUNCTION_NAME"
 
-              echo "Deployed $FUNCTION_NAME successfully."
+          #     echo "Deployed $FUNCTION_NAME successfully."
 
-              rm -rf package lambda.zip
+          #     rm -rf package lambda.zip
 
-            fi
-          done
+          #   fi
+          # done
