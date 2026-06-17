@@ -3,8 +3,12 @@ import boto3
 import traceback
 from decimal import Decimal
 
+import uuid
+import os
 
-TABLE_NAME = "vpcmanager_prod" 
+
+TABLE_NAME = os.environ["TABLE_NAME"]
+env = os.environ.get("env", "dev")
 
 
 CORS_HEADERS = {
@@ -110,9 +114,8 @@ def clear_events():
 
                 batch.delete_item(
                     Key={
-                        "resource_type": resource_type,
-                        "resource_id": resource_id
-                    }
+                            "event_id": item["event_id"]
+                        }
                 )
 
                 deleted_count += 1
