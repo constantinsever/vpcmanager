@@ -54,17 +54,36 @@ function logout() {
   window.location.href = "index.html";
 }
 
-async function authenticatedFetch(url, options = {}) {
-  const token = localStorage.getItem("id_token") || localStorage.getItem("access_token");
+// async function authenticatedFetch(url, options = {}) {
+//   const token = localStorage.getItem("id_token") || localStorage.getItem("access_token");
 
-  return fetch(url, {
-    ...options,
-    headers: {
+//   return fetch(url, {
+//     ...options,
+//     headers: {
+//       "Content-Type": "application/json",
+//       ...(options.headers || {}),
+//       Authorization: `Bearer ${token}`
+//     }
+//   });
+// }
+
+
+async function authenticatedFetch(url, options = {}) {
+  const token =
+    localStorage.getItem("id_token") ||
+    localStorage.getItem("access_token");
+
+  const fetchOptions = Object.assign({}, options);
+
+  fetchOptions.headers = Object.assign(
+    {
       "Content-Type": "application/json",
-      ...(options.headers || {}),
       Authorization: `Bearer ${token}`
-    }
-  });
+    },
+    options.headers || {}
+  );
+
+  return fetch(url, fetchOptions);
 }
 
 async function loadAudit() {
